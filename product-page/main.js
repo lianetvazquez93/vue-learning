@@ -4,7 +4,17 @@ const app = new Vue({
         product: "Socks",
         image: "./assets/vmSocks-green-onWhite.jpg",
         inStock: true,
-        onSale: true
-
+        details: ["80% cotton", "20% polyester", "Gender-neutral"],
+        variants: [
+            {
+                variantId: 2234,
+                variantColor: "green"
+            },
+            {
+                variantId: 2235,
+                variantColor: "blue"
+            }
+        ],
+        sizes: ["35-38", "39-42", "43-46"]
     }
 });
