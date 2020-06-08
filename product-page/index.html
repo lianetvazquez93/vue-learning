@@ -16,7 +16,8 @@
             </div>
             <div class="product-info">
                 <h1>{{ product }}</h1>
-                <a v-bind:href="link">google</a>
+                <p v-show="inStock">In Stock</p>
+                <span v-if="onSale">On Sale!</span>
             </div>
         </div>
     </div>
