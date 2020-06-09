@@ -25,11 +25,6 @@ const app = new Vue({
         },
         updateProduct(variantImage) {
             this.image = variantImage;
-        },
-        decrementCart() {
-            if (this.cart > 0) {
-                this.cart -= 1;
-            }
         }
     }
 });
