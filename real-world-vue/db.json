@@ -231,21 +231,6 @@
       "date": "",
       "time": "5:00",
       "attendees": []
-    },
-    {
-      "id": 208436,
-      "user": {
-        "id": "abc123",
-        "name": "Adam Jahr"
-      },
-      "category": "animal welfare",
-      "organizer": "Adam Jahr",
-      "title": "Test",
-      "description": "nvkjfvjsfjhgsdfgguerytytfuydgcdvcygfytdfhcvdvchgsf",
-      "location": "dvgsdhryfguyerg",
-      "date": "2020-06-02T13:23:00.000Z",
-      "time": "9:00",
-      "attendees": []
     }
   ]
 }
