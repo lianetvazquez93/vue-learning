@@ -70,7 +70,7 @@ export const actions = {
         .catch(error => {
           const notification = {
             type: "error",
-            message: `There was a problem fetching event: ${error.message}`,
+            message: `There was a problem fetching event: ${error.message}`
           };
           dispatch("notification/add", notification, { root: true });
         });
