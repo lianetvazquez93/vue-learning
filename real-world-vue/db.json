@@ -231,6 +231,21 @@
       "date": "",
       "time": "5:00",
       "attendees": []
+    },
+    {
+      "id": 9090832,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "nature",
+      "organizer": "Adam Jahr",
+      "title": "Test",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
