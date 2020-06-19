@@ -246,6 +246,51 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 6296615,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "food",
+      "organizer": "Adam Jahr",
+      "title": "Destroy the World",
+      "description": "aaf",
+      "location": "",
+      "date": "2020-06-19T16:19:00.000Z",
+      "time": "3:00",
+      "attendees": []
+    },
+    {
+      "id": 921501,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "nature",
+      "organizer": "Adam Jahr",
+      "title": "Test",
+      "description": "svblafhvb",
+      "location": "mdvnjkfhj",
+      "date": "2020-06-02T08:46:00.000Z",
+      "time": "3:00",
+      "attendees": []
+    },
+    {
+      "id": 6747897,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "",
+      "organizer": "Adam Jahr",
+      "title": "test",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
