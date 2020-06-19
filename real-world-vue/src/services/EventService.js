@@ -6,9 +6,9 @@ const apiClient = axios.create({
   withCredentials: false,
   headers: {
     Accept: "application/json",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
-  timeout: 10000
+  timeout: 10000,
 });
 
 apiClient.interceptors.request.use(config => {
@@ -30,5 +30,5 @@ export default {
   },
   postEvent(event) {
     return apiClient.post("/events", event);
-  }
+  },
 };

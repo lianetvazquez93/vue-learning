@@ -15,7 +15,7 @@ const routes = [
     path: "/",
     name: "event-list",
     component: EventList,
-    props: true
+    props: true,
   },
   {
     path: "/events/:id",
@@ -36,33 +36,33 @@ const routes = [
             next({ name: "network-issue" });
           }
         });
-    }
+    },
   },
   {
     path: "/event/create",
     name: "event-create",
-    component: EventCreate
+    component: EventCreate,
   },
   {
     path: "/404",
     name: "404",
     component: NotFound,
-    props: true
+    props: true,
   },
   {
     path: "/network-issue",
     name: "network-issue",
-    component: NetworkIssue
+    component: NetworkIssue,
   },
   {
     path: "*",
-    redirect: { name: "404", params: { resource: "page" } }
-  }
+    redirect: { name: "404", params: { resource: "page" } },
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
-  routes
+  routes,
 });
 
 router.beforeEach((routeTo, routeFrom, next) => {

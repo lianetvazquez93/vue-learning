@@ -15,12 +15,12 @@ export default new Vuex.Store({
       "housing",
       "education",
       "food",
-      "community"
-    ]
+      "community",
+    ],
   },
   modules: {
     user,
     event,
-    notification
-  }
+    notification,
+  },
 });

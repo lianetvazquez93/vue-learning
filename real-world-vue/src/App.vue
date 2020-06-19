@@ -13,8 +13,8 @@ import NotificationContainer from "./components/NotificationContainer";
 export default {
   components: {
     NavBar,
-    NotificationContainer
-  }
+    NotificationContainer,
+  },
 };
 </script>
 

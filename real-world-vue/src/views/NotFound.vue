@@ -11,8 +11,8 @@ export default {
   props: {
     resource: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>

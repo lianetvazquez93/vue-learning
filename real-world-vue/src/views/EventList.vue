@@ -27,25 +27,25 @@ import store from "../store";
 
 const getPageEvents = (routeTo, next) => {
   const currentPage = parseInt(routeTo.query.page) || 1;
-    store
-      .dispatch("event/fetchEvents", {
-        page: currentPage
-      })
-      .then(() => {
-        routeTo.params.page = currentPage;
-        next();
-      });
-}
+  store
+    .dispatch("event/fetchEvents", {
+      page: currentPage,
+    })
+    .then(() => {
+      routeTo.params.page = currentPage;
+      next();
+    });
+};
 
 export default {
   props: {
     page: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    EventCard
+    EventCard,
   },
   beforeRouteEnter(routeTo, routeFrom, next) {
     getPageEvents(routeTo, next);
@@ -57,7 +57,7 @@ export default {
     hasNextPage() {
       return this.event.eventsTotal > this.page * this.event.perPage;
     },
-    ...mapState(["event", "user"])
-  }
+    ...mapState(["event", "user"]),
+  },
 };
 </script>
