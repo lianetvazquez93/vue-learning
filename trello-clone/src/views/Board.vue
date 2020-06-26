@@ -6,7 +6,12 @@
           {{ column.name }}
         </div>
         <div class="list-reset">
-          <div class="task" v-for="task of column.tasks" :key="task.id">
+          <div
+            class="task"
+            v-for="task of column.tasks"
+            :key="task.id"
+            @click="goTotask(task)"
+          >
             <span class="w-full flex-no-shrink font-bold">
               {{ task.name }}
             </span>
@@ -20,6 +25,10 @@
         </div>
       </div>
     </div>
+
+    <div class="task-bg" v-if="isTaskOpen" @click.self="closeTask">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -27,7 +36,20 @@
 import { mapState } from "vuex";
 
 export default {
-  computed: mapState(["board"]),
+  computed: {
+    ...mapState(["board"]),
+    isTaskOpen() {
+      return this.$route.name === "task";
+    },
+  },
+  methods: {
+    goTotask(task) {
+      this.$router.push({ name: "task", params: { id: task.id } });
+    },
+    closeTask() {
+      this.$router.push({ name: "board" });
+    },
+  },
 };
 </script>
 
@@ -40,6 +62,7 @@ export default {
   @apply bg-gray-400 p-2 mr-4 shadow rounded;
   min-width: 350px;
 }
+
 .board {
   @apply p-4 bg-teal-600 h-full overflow-auto;
 }
