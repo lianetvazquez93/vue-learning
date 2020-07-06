@@ -16,6 +16,10 @@ export default new Vuex.Store({
         "Authorization"
       ] = `Bearer: ${userData.token}`;
     },
+    CLEAR_USER_DATA() {
+      localStorage.removeItem("user");
+      location.reload();
+    },
   },
   actions: {
     async register({ commit }, credentials) {
@@ -31,6 +35,9 @@ export default new Vuex.Store({
         credentials,
       );
       commit("SET_USER_DATA", response.data);
+    },
+    logout({ commit }) {
+      commit("CLEAR_USER_DATA");
     },
   },
   getters: {
