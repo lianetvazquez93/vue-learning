@@ -2,11 +2,18 @@
   <div id="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/dashboard">Dashboard</router-link>
+    <router-link v-if="!loggedIn" to="/login" class="button">Login</router-link>
   </div>
 </template>
 
 <script>
-export default {};
+import { authComputed } from "../store/helpers";
+
+export default {
+  computed: {
+    ...authComputed,
+  },
+};
 </script>
 
 <style scoped>

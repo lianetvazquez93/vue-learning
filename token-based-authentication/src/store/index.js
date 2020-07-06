@@ -25,6 +25,17 @@ export default new Vuex.Store({
       );
       commit("SET_USER_DATA", response.data);
     },
+    async login({ commit }, credentials) {
+      const response = await axios.post(
+        "http://localhost:3000/login",
+        credentials,
+      );
+      commit("SET_USER_DATA", response.data);
+    },
   },
-  modules: {},
+  getters: {
+    loggedIn(state) {
+      return !!state.user;
+    },
+  },
 });
