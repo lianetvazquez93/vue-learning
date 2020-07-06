@@ -1,0 +1,20 @@
+<template>
+  <div id="app">
+    <app-nav />
+    <router-view class="page" />
+  </div>
+</template>
+
+<script>
+import AppNav from "./components/AppNav";
+
+export default {
+  components: {
+    AppNav,
+  },
+};
+</script>
+
+<style>
+@import "./assets/styles/global.css";
+</style>
