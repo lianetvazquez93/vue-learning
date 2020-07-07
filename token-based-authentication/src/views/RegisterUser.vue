@@ -11,6 +11,12 @@
       <input type="password" name="password" v-model="password" value />
 
       <button type="submit" name="button">Register</button>
+
+      <ul>
+        <li v-for="(error, index) in errors" :key="index">
+          {{ error }}
+        </li>
+      </ul>
       <router-link to="/login">Already have an account? Login.</router-link>
     </form>
   </div>
@@ -23,16 +29,21 @@ export default {
       name: "",
       email: "",
       password: "",
+      errors: null,
     };
   },
   methods: {
     async register() {
-      await this.$store.dispatch("register", {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-      });
-      this.$router.push({ name: "dashboard" });
+      try {
+        await this.$store.dispatch("register", {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        });
+        this.$router.push({ name: "dashboard" });
+      } catch (error) {
+        this.errors = error.response.data.errors;
+      }
     },
   },
 };

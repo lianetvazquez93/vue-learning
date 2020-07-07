@@ -17,4 +17,12 @@ export default {
 
 <style>
 @import "./assets/styles/global.css";
+
+.page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 56px);
+}
 </style>

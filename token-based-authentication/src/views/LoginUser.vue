@@ -8,6 +8,9 @@
       <input type="password" name="password" v-model="password" value />
 
       <button type="submit" name="button">Login</button>
+
+      <p>{{ error }}</p>
+
       <router-link to="/register">Don't have an account? Register.</router-link>
     </form>
   </div>
@@ -19,15 +22,20 @@ export default {
     return {
       email: "",
       password: "",
+      error: null,
     };
   },
   methods: {
     async login() {
-      await this.$store.dispatch("login", {
-        email: this.email,
-        password: this.password,
-      });
-      this.$router.push({ name: "dashboard" });
+      try {
+        await this.$store.dispatch("login", {
+          email: this.email,
+          password: this.password,
+        });
+        this.$router.push({ name: "dashboard" });
+      } catch (error) {
+        this.error = error.response.data.error;
+      }
     },
   },
 };

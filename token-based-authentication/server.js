@@ -29,32 +29,41 @@ app.get("/dashboard", verifyToken, (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  if (req.body) {
-    const user = {
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      // You'll want to encrypt the password in a live app
-    };
+  const user = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    // In a production app, you'll want to encrypt the password
+  };
 
+  const dbUserEmail = require("./db/user.json").email;
+  let errorsToSend = [];
+
+  if (user.password.length < 5) {
+    errorsToSend.push("Password to short");
+  }
+
+  if (user.email === dbUserEmail) {
+    errorsToSend.push("An account with this email already exists");
+  }
+
+  if (errorsToSend.length === 0) {
     const data = JSON.stringify(user, null, 2);
-
-    fs.writeFile("db/user.json", data, err => {
+    fs.writeFile("./db/user.json", data, err => {
       if (err) {
         console.log(err);
       } else {
-        console.log("Added user to user.json");
+        const token = jwt.sign({ user }, "the_secret_key");
+        // In a production app, you'll want the secret key to be an environment variable
+        res.json({
+          token,
+          email: user.email,
+          name: user.name,
+        });
       }
     });
-    // The secret key should be an evironment variable in a live app
-    const token = jwt.sign({ user }, "the_secret_key");
-    res.json({
-      token,
-      email: user.email,
-      name: user.name,
-    });
   } else {
-    res.sendStatus(401);
+    return res.status(400).send({ errors: errorsToSend });
   }
 });
 
@@ -74,7 +83,7 @@ app.post("/login", (req, res) => {
       name: userInfo.name,
     });
   } else {
-    res.sendStatus(401);
+    return res.status(401).send({ error: "Invalid login. Please try again." });
   }
 });
 

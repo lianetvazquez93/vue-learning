@@ -55,9 +55,9 @@ button,
   background: white;
   text-decoration: none;
   color: #2c3e50;
-  &.router-link-active {
-    color: #2c3e50;
-  }
+}
+.router-link-active {
+  color: #2c3e50;
 }
 .logoutButton {
   cursor: pointer;
